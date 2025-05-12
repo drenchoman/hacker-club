@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+    href="/styles/globals.css"
+    rel="stylesheet"
+    type="text/css"
+  />
+  <link href="/styles/login.css" rel="stylesheet" type="text/css" />
+  <link href="/styles/animation.css" rel="stylesheet" type="text/css" />
+
+    <title><%= title %></title>
+    <meta name="description" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="glitch low-opacity">
+
+      </div>
+      <div class="malware-glitch low-opacity"></div>
+      <div class="login-wrapper ">
+      <h1><%= title %></h1>
+     
+        <form action="/register" method="POST">
+          
+          <label for="alias">Alias</label>
+          <% if (locals.alias) { %>
+          <input name="alias" id="alias" placeholder="H4CK3R M4N" <%="value="%><%=alias%> />
+          <% } else { %>
+            <input type="text" required name="alias" id="alias" placeholder="H4CK3R M4N" type="text">
+            <% } %>
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" />
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" name="confirmPassword" id="confirmPassword">
+          <span class="label-like">Select Avatar</span> 
+          <div class='avatarWrapper'>
+            <label class='animatePop delay-1'>
+              <input type='radio' name='avatar' value='1' checked />
+              <img class='avatarImage filter' src='/images/cube1.svg' />
+            </label>
+
+          <label class='animatePop delay-1'>
+            <input type='radio' name='avatar' value='2' />
+            <img class='avatarImage filter' src='/images/cube2.svg' />
+          </label>
+
+          <label class='animatePop delay-1'>
+            <input type='radio' name='avatar' value='3' />
+            <img class='avatarImage filter' src='/images/cube3.svg' />
+          </label>
+
+          <label class='animatePop delay-1'>
+            <input type='radio' name='avatar' value='4' />
+            <img class='avatarImage filter' src='/images/cube4.svg' />
+          </label>
+
+          <label class='animatePop delay-2'>
+            <input type='radio' name='avatar' value='5' />
+            <img class='avatarImage filter' src='/images/cube5.svg' />
+          </label>
+
+          <label class='animatePop delay-2'>
+            <input type='radio' name='avatar' value='6' />
+            <img class='avatarImage filter' src='/images/smiley1.svg' />
+          </label>
+
+          <label class='animatePop delay-2'>
+            <input type='radio' name='avatar' value='7' />
+            <img class='avatarImage filter' src='/images/smiley2.svg' />
+          </label>
+
+          <label class='animatePop delay-3'>
+            <input type='radio' name='avatar' value='8' />
+            <img class='avatarImage filter' src='/images/smiley3.svg' />
+          </label>
+
+          <label class='animatePop delay-3'>
+            <input type='radio' name='avatar' value='9' />
+            <img class='avatarImage filter' src='/images/cookie.svg' />
+          </label>
+
+          <label class='animatePop delay-3'>
+            <input type='radio' name='avatar' value='10' />
+            <img class='avatarImage filter' src='/images/pizza.svg' />
+          </label>
+        </div>
+
+        <button type="submit">Join</button>
+      </div>
+      
+
+          
+        </form>
+        <div class="links">
+          <a href="/">Home</a>
+          <a href="/login">Login</a>
+        </div>
+          <% if (locals.errors){ %>
+            <ul class='errors'>
+              <% locals.errors.forEach(function(message) {  %>
+                <li><%= message.msg %></li>
+              <% } ); %>
+            </ul>
+            <% } %>
+            <%- include('footer') %>
+
+      </div>
+    
+    <script src="" async defer></script>
+  </body>
+</html>

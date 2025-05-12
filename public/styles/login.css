@@ -1,0 +1,113 @@
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+.login-wrapper > h1 {
+  margin: 1rem 0;
+}
+
+.login-wrapper > form {
+  display: flex;
+  flex-direction: column;
+}
+.login-wrapper > form > input {
+  min-width: 375px;
+}
+
+.login-wrapper > form > * {
+  margin: 0.5rem 0;
+}
+
+.login-wrapper > form > button {
+  max-width: 3.5rem;
+  align-self: center;
+}
+
+.avatarWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 375px;
+}
+
+.avatarWrapper > label {
+  margin: 0 0.5rem;
+}
+
+.message-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  margin: 1rem 0;
+}
+
+.message-wrapper > form {
+  display: flex;
+  flex-direction: column;
+  min-width: 375px;
+  max-width: 390px;
+}
+
+.message-wrapper > form > * {
+  margin: 0.5rem 0;
+}
+
+.message-wrapper > form > button {
+  max-width: 3.5rem;
+  align-self: center;
+}
+
+.passcode-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  justify-content: center;
+}
+.passcode-wrapper > a {
+  align-self: center;
+}
+.passcode-wrapper > img {
+  align-self: center;
+}
+
+.passcode-wrapper > form {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  max-width: 390px;
+}
+
+.passcode-wrapper > form > * {
+  margin: 0.5rem 0;
+}
+
+.passcode-wrapper > form > button {
+  max-width: 3.5rem;
+  align-self: center;
+}
+
+.error-wrapper {
+  z-index: 5;
+}
+
+.user-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-wrapper > h3 {
+  font-size: 2rem;
+}
+
+.welcome {
+  margin: 1rem 0;
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <html>
+    <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <link
+        href="/styles/globals.css"
+        rel="stylesheet"
+        type="text/css"
+      />
+      <link href="/styles/login.css" rel="stylesheet" type="text/css" />
+      <link href="/styles/animation.css" rel="stylesheet" type="text/css" />
+
+      <title>Member</title>
+      <meta name="description" content="" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+      />
+      <link rel="stylesheet" href="" />
+    </head>
+    <body>
+      <div class="wrapper">
+       
+        <% if (locals.user) { %> <% if (user.status == 'Pleb') { %>
+          <div class="glitch low-opacity"></div>
+          <div class="malware-glitch low-opacity"></div>
+        <h2>Hello <%= user.alias %></h2>
+        <div class="passcode-wrapper">
+          <p>
+            Confirm your membership by entering the secret code
+          </p>
+          <img src="/images/passcode.svg">
+          <form action="/member" method="POST">
+            <label for="secretPasscode">Passcode</label>
+            <input
+              id="secretPasscode"
+              name="secretPasscode"
+              type="text"
+            />
+            <button type="submit">Join</button>
+          </form>
+          <% if (locals.errors){ %>
+          <ul class="errors">
+            <% locals.errors.forEach(function(message) { %>
+            <li><%= message.msg %></li>
+            <% } ); %>
+          </ul>
+          <% } %>
+          <a href="/">Home</a>
+
+        </div>
+
+        <% } else if (user.status == 'Member' || user.status ==
+        'Admin') { %>
+          <div class="glitch"></div>
+          <div class="malware-glitch"></div>
+        <h2 class="welcome"><img src="/images/welcome.svg"></h2>
+        <div class="user-wrapper">
+          <h3 class="animatePop"><%= user.alias %></h3>
+          <div class="card-image animatePop delay-1">
+            <img
+              class="filter"
+              src="/images/<%= avatarName.name%>.svg"
+            />
+          </div>
+        </div>
+        <div class="message-wrapper ">
+          <h3>New Message</h3>
+          <form action="/member/message" method="post">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" />
+            <label for="message">New Message</label>
+            <textarea id="message" name="message"> </textarea>
+            <button type="submit">Send</button>
+          </form>
+          <% if (locals.errors){ %>
+          <ul class="errors">
+            <% locals.errors.forEach(function(message) { %>
+            <li><%= message.msg %></li>
+            <% } ); %>
+          </ul>
+          <% } %>
+        </div>
+
+        
+          <a href="/logout">Logout</a>
+        
+
+        <div>
+          <% messages.forEach(function(message) { %>
+          <div class="card-outer ">
+            <div class="card-inner">
+              <div>
+                <h3 class="card-title"><%= message.title %></h3>
+                <p class="card-message"><%= message.message %></p>
+              </div>
+              <div class="card-bottom">
+                <div class="card-user-info">
+                  <span><%= message.alias %></span>
+                  <span><%= message.readable_date %></span>
+                </div>
+                <div class="card-image">
+                  <img
+                    class="filter animatePop delay-4"
+                    src="/images/<%= message.avatar_name %>.svg"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <% if (user.status == 'Admin') { %>
+          <div>
+            <form action="/member/message/delete" method="POST">
+              <input
+                type="hidden"
+                name="messageId"
+                value="<%= message.message_id %>"
+              />
+              <input type="image" class="" src="/images/trash.svg" />
+            </form>
+          </div>
+          <% } %>
+       
+        <% }); %> <% } %> <% } else { %>
+          <div class="glitch low-opacity"></div>
+          <div class="malware-glitch low-opacity"></div>
+        <div class="error-wrapper">
+          <h1>What are you doing here?</h1>
+          <a href="/register">Register</a>
+          <br />
+          <a href="/login">Login</a>
+        </div>
+        <% } %>
+        <%- include('footer') %>
+      </div>
+      <!--[if lt IE 7]>
+        <p class="browsehappy">
+          You are using an <strong>outdated</strong> browser. Please
+          <a href="#">upgrade your browser</a> to improve your
+          experience.
+        </p>
+      <![endif]-->
+
+      <script src="" async defer></script>
+    </body>
+  </html>
+</html>

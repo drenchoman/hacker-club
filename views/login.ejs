@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      href="/styles/globals.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="/styles/login.css" rel="stylesheet" type="text/css" />
+    <title><%= title %></title>
+    <meta name="description" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="glitch low-opacity"></div>
+      <div class="malware-glitch low-opacity"></div>
+      <div class="login-wrapper">
+        <h1><%= title %></h1>
+
+        <form action="/login" method="POST">
+          <label for="alias">Alias</label>
+          <input name="alias" id="alias" placeholder="H4CK3R M4N" />
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" />
+          <button type="submit">Login</button>
+        </form>
+        <% if (locals.errors){ %>
+        <ul class="errors">
+          <% locals.errors.forEach(function(message) { %>
+          <li><%= message.msg %></li>
+          <% } ); %>
+        </ul>
+        <% } %> <% if (locals.error){ %>
+        <ul class="errors">
+          <% locals.error.forEach(function(message) { %>
+          <li><%= message %></li>
+          <% } )} %>
+        </ul>
+        <div class="links">
+          <a href="/">Home</a>
+          <a href="/register">Register</a>
+        </div>
+      </div>
+      <%- include('footer') %>
+    </div>
+    <script src="" async defer></script>
+  </body>
+</html>
