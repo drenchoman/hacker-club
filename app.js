@@ -56,9 +56,6 @@ passport.deserializeUser(async (id, done) => {
 });
 
 const app = express();
-app.set('views', path.join(__dirname, 'views'));
-app.use(express.static(path.join(__dirname, 'public')));
-app.set('view engine', 'ejs');
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
@@ -82,6 +79,10 @@ app.use(
     },
   })
 );
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'ejs');
+
 app.use(
   session({ secret: 'cats', resave: false, saveUninitialized: false })
 );
