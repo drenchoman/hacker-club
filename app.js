@@ -59,25 +59,11 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
+app.use(helmet());
 app.use(
   session({ secret: 'cats', resave: false, saveUninitialized: false })
 );
 app.use(flash());
-app.use(
-  helmet.contentSecurityPolicy({
-    directives: {
-      defaultSrc: ["'none'"],
-      scriptSrc: ["'self'"],
-      styleSrc: ["'self'", "'unsafe-inline'"],
-      fontSrc: ["'self'", 'data:'],
-      imgSrc: ["'self'", 'data:'],
-      connectSrc: ["'self'"],
-      objectSrc: ["'none'"],
-      baseUri: ["'self'"],
-      formAction: ["'self'"],
-    },
-  })
-);
 
 app.use(passport.session());
 
