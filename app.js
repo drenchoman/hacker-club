@@ -59,7 +59,29 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
-app.use(helmet());
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      styleSrc: [
+        "'self'",
+        'https://fonts.googleapis.com',
+        "'unsafe-inline'", // Required if you use inline styles (optional otherwise)
+      ],
+      fontSrc: [
+        "'self'",
+        'https://fonts.gstatic.com',
+        'data:', // Needed for embedded fonts like base64
+      ],
+      scriptSrc: ["'self'"],
+      imgSrc: ["'self'", 'data:'],
+      connectSrc: ["'self'"],
+      objectSrc: ["'none'"],
+      baseUri: ["'self'"],
+      formAction: ["'self'"],
+    },
+  })
+);
 app.use(
   session({ secret: 'cats', resave: false, saveUninitialized: false })
 );
