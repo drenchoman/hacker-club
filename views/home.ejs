@@ -37,7 +37,8 @@
           <a href="/register">Register</a>
         </div>
       </div>
-      <% messages.forEach(function(message) { %>
+      <% if(messages && messages.length > 0) { %> <%
+      messages.forEach(function(message) { %>
       <div class="card-outer">
         <div class="card-inner">
           <div>
@@ -62,7 +63,7 @@
           </div>
         </div>
       </div>
-      <% }) %> <%- include('footer') %>
+      <% })} %> <% %> <%- include('footer') %>
     </div>
 
     <!--[if lt IE 7]>
