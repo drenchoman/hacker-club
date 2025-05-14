@@ -109,6 +109,10 @@ button:hover {
   padding: 0;
 }
 
+.cta {
+  margin-bottom: 0;
+}
+
 .links > * {
   padding: 0 0.5rem;
 }
