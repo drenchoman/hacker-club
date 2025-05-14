@@ -139,7 +139,7 @@ button:hover {
   flex-direction: column;
   border-radius: 5px;
   background-color: #000000;
-  min-width: 375px;
+  min-width: 390px;
   max-width: 390px;
   border: 3px double #df00ff;
   margin: 1rem 0;
@@ -215,7 +215,7 @@ button:hover {
 }
 .card-message {
   font-size: 1.5rem;
-  line-height: 1rem;
+  line-height: 2rem;
   white-space: normal; /* allows wrapping */
   text-indent: 0;
   padding: 0.5rem 0;
@@ -270,7 +270,7 @@ button:hover {
   animation: glitch-mal 7s infinite steps(1);
   position: fixed;
   top: 5rem;
-  left: 11rem;
+  left: 7rem;
   transform: rotate(-10deg);
   filter: invert(100%) sepia(0%) saturate(7498%) hue-rotate(130deg)
     brightness(111%) contrast(101%);

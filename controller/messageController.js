@@ -14,11 +14,14 @@ exports.postMessage = [
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       console.log('error', errors);
+      console.log(req.user);
+      const avatarName = await db.getAvatarName(req.user.avatar_id);
       const messages = await db.getAllMessages();
       return res.render('member', {
         messages: messages,
         user: req.user,
         errors: errors.errors,
+        avatarName: avatarName[0],
       });
     }
     try {
