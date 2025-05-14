@@ -95,6 +95,7 @@
         
 
         <div>
+          <% if(messages && messages.length > 0) { %> <%
           <% messages.forEach(function(message) { %>
           <div class="card-outer ">
             <div class="card-inner">
@@ -130,7 +131,7 @@
           </div>
           <% } %>
        
-        <% }); %> <% } %> <% } else { %>
+        <% })}; %> <% } %> <% } else { %>
           <div class="glitch low-opacity"></div>
           <div class="malware-glitch low-opacity"></div>
         <div class="error-wrapper">
