@@ -74,7 +74,7 @@ async function getAvatarName(id) {
 
 async function createNewMessage(message, user) {
   const query = {
-    text: 'INSERT INTO messages (user_id, title, message, created_at) VALUES ($1, $2, $3)',
+    text: 'INSERT INTO messages (user_id, title, message, created_at) VALUES ($1, $2, $3, $4)',
     values: [user.id, message.title, message.message, new Date()],
   };
   try {
