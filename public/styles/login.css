@@ -108,6 +108,7 @@
   font-size: 2rem;
 }
 
-.welcome {
+.welcome,
+.errors {
   margin: 1rem 0;
 }
