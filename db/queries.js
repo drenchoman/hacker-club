@@ -48,7 +48,7 @@ async function confirmMembership(id) {
 
 async function getAllMessages() {
   const query = {
-    text: "SELECT messages.id AS message_id, messages.title, messages.message, TO_CHAR(messages.created_at,'FMMonth DD, YYYY') AS readable_date, users.id AS user_id, users.alias, avatar.name as avatar_name FROM messages JOIN users ON messages.user_id = users.id LEFT JOIN avatar on users.avatar_id = avatar.id ORDER BY messages.created_at DESC",
+    text: "SELECT messages.id AS message_id, messages.title, messages.message, TO_CHAR(messages.created_at,'FMMonth DD, YYYY') AS readable_date, users.id AS user_id, users.alias, avatar.name as avatar_name FROM messages JOIN users ON messages.user_id = users.id LEFT JOIN avatar on users.avatar_id = avatar.id ORDER BY messages.id DESC",
   };
   try {
     const { rows } = await pool.query(query);
