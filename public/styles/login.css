@@ -14,13 +14,18 @@
 .login-wrapper > form {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 .login-wrapper > form > input {
-  min-width: 375px;
+  width: 100%;
 }
 
 .login-wrapper > form > * {
   margin: 0.5rem 0;
+}
+
+.login-wrapper > form > :first-child {
+  margin-top: 0;
 }
 
 .login-wrapper > form > button {
@@ -112,4 +117,22 @@
 .welcome,
 .errors {
   margin: 1rem 0;
+}
+
+@media screen and (max-width: 414px) {
+}
+
+@media screen and (max-width: 375px) {
+  /* .card-outer {
+    min-width: 350px;
+  } */
+  .login-wrapper {
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 325px) {
+  .login-wrapper {
+    padding: 0 1rem;
+  }
 }

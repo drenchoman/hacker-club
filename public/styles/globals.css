@@ -123,8 +123,7 @@ button:hover {
   justify-content: space-evenly;
   color: #ffffff;
   font-weight: bold;
-  max-width: inherit;
-  min-width: inherit;
+  width: 100%;
 }
 .links > a:visited {
   color: #ffffff;
@@ -206,6 +205,7 @@ button:hover {
   flex-direction: column;
   font-size: 1rem;
   display: flex;
+  font-style: 0.7rem;
   gap: 0.25rem;
 }
 
@@ -328,13 +328,34 @@ button:hover {
 }
 
 @media screen and (max-width: 414px) {
+  .glitch,
+  .malware-glitch {
+    opacity: 0.2;
+  }
+  .card-outer {
+    min-width: 350px;
+    max-width: 350px;
+  }
 }
 
 @media screen and (max-width: 375px) {
   .card-outer {
     min-width: 350px;
+    max-width: 350px;
+  }
+  .glitch,
+  .malware-glitch {
+    opacity: 0.2;
   }
 }
 
 @media screen and (max-width: 325px) {
+  .glitch,
+  .malware-glitch {
+    opacity: 0.2;
+  }
+  .card-outer {
+    min-width: 300px;
+    max-width: 300px;
+  }
 }
