@@ -107,10 +107,11 @@ button:hover {
 }
 .welcome-wrapper > img {
   padding: 0;
+  margin-bottom: 0;
 }
 
 .cta {
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .links > * {
@@ -122,8 +123,8 @@ button:hover {
   justify-content: space-evenly;
   color: #ffffff;
   font-weight: bold;
-  max-width: 375px;
-  min-width: 375px;
+  max-width: inherit;
+  min-width: inherit;
 }
 .links > a:visited {
   color: #ffffff;
@@ -218,7 +219,7 @@ button:hover {
   display: block;
 }
 .card-message {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   line-height: 2rem;
   white-space: normal; /* allows wrapping */
   text-indent: 0;

@@ -72,8 +72,15 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/', router);
 
-app.use((req, res) => {
-  res.status(404).render('404');
+app.use((req, res, next) =>
+  res
+    .status(404)
+    .render('error', { statusCode: 404, message: 'Page Not found!' })
+);
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).render('404', { message: 'Something went wrong' });
 });
 
 app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
